@@ -11,3 +11,8 @@ class Profile(models.Model):
     def __str__(self):
         return f"{self.user.username}"
     
+class UserOTP(models.Model):
+    user=models.OneToOneField(User,on_delete=models.CASCADE)
+    otp=models.CharField(max_length=6,null=True,blank=True)
+    
+    

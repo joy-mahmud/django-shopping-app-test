@@ -37,6 +37,7 @@
       <div class="flex gap-5 justify-center">
         {% for product in products %}
         <div class="border-[2px] border-slate-500 rounded-lg p-5">
+             <a href="{% url 'product_details' product.id %}">
             <p>name: {{product.name}}</p>
             <p>price:{{product.price}}</p>
             <p>quantity:{{product.quantity}}</p>
@@ -45,8 +46,9 @@
             {% else %}
                 <p>No image available</p>
             {% endif %}
-           
+            </a>
         </div>
+          
         
         {% endfor %}
       </div>
