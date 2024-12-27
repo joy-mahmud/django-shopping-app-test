@@ -9,29 +9,8 @@
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body>
-    <header>
-        <nav class="header">
-            <ul class="flex items-center p-3 justify-between">
-               <div class="flex ">
-                    <li class="mr-[10px] hover:text-white">
-                        <a href=" {% url 'home' %}">Home</a>
-                    </li>
-                    <li class="mr-[10px] hover:text-white">
-                        <a href="{% url 'add_product' %}">Add product</a>
-                    </li>
-               </div>
-               <div class="flex">
-                    <li class="mr-[10px] hover:text-white">
-                        <a href=" {% url 'home' %}">Login</a>
-                    </li>
-                    <li class="mr-[10px] hover:text-white">
-                        <a href="{% url 'add_product' %}">Register</a>
-                    </li>
-               </div>
-            </ul>
-        </nav>
-    </header>
 
+{% include "main/menu.html" %}
     <div>
         <h2 class="text-center font-semibold text-xl my-5">All products</h2>
       <div class="flex gap-5 justify-center">

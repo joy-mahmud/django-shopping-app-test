@@ -57,7 +57,7 @@ def view_cart(request):
     items = cart.items.select_related('product').annotate(
     item_total=F('quantity') * F('product__price')
 )
-    total_price = items.aggregate(price=Sum('item_total'))['price'] or 0
+    total_price = items.aggregate(total=Sum('item_total'))['total'] or 0
     print(items.values())
     # total_price = cart.total_price()  # Calculate total price
     return render(request, 'main/view_cart.html', {'items': items,'total_price':total_price})
