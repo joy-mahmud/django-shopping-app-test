@@ -15,10 +15,20 @@
            </div>
            <div class="flex">
                 <li class="mr-[10px] hover:text-white">
-                    <a href=" {% url 'home' %}">Login</a>
+                    {% if request.user.username %}
+                    <div class="flex gap-10 items-center">
+                        <p class='text-white text-[14px] font-normal'>welcome {{request.user.username}}</p>
+                    <a href="{% url 'logout' %}">logout</a>
+                    </div>
+                    
+                    {% else %}
+                  
+                    <a href=" {% url 'login' %}">Login</a>
+                    {% endif %}
+                  
                 </li>
                 <li class="mr-[10px] hover:text-white">
-                    <a href="{% url 'add_product' %}">Register</a>
+                    <a href="{% url 'login' %}">Register</a>
                 </li>
            </div>
         </ul>
