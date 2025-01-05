@@ -15,7 +15,7 @@
            </div>
            <div class="flex">
                 <li class="mr-[10px] hover:text-white">
-                    {% if request.user.username %}
+                    {% if request.user.is_authenticated %}
                     <div class="flex gap-10 items-center">
                         <p class='text-white text-[14px] font-normal'>welcome {{request.user.username}}</p>
                     <a href="{% url 'logout' %}">logout</a>
@@ -28,7 +28,7 @@
                   
                 </li>
                 <li class="mr-[10px] hover:text-white">
-                    <a href="{% url 'login' %}">Register</a>
+                    <a href="{% url 'register' %}">Register</a>
                 </li>
            </div>
         </ul>
