@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    {% include "main/menu.html" %}
+   <div class="flex">
+    {% include "admin/sidebar.html" %}
+        <div class="flex justify-center w-full">
+            <div>
+                <h2 class="text-center text-2xl font-bold my-4">Update Product</h2>
+                <div class="flex justify-center w-full">
+                    <form action="" method="post" class="border p-5 rounded-lg shadow-lg" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="flex flex-col gap-3 justify-center">
+                            <div class="flex flex-col gap-1">
+                                <label for="id_name" class="font-medium">Name:</label>
+                                <input type="text" name="name" id="id_name" class="border-[2px] border-gray-600 rounded-lg w-[300px] p-2" value="{{ form.name.value|default_if_none:'' }}">
+                            </div>
+                            <div class="flex flex-col gap-1">
+                                <label for="id_price" class="font-medium">Price:</label>
+                                <input type="text" name="price" id="id_price" class="border-[2px] border-gray-600 rounded-lg w-[300px] p-2" value="{{ form.price.value|default_if_none:'' }}">
+                            </div>
+                            <div class="flex flex-col gap-1">
+                                <label for="id_quantity" class="font-medium">Quantity:</label>
+                                <input type="text" name="quantity" id="id_quantity" class="border-[2px] border-gray-600 rounded-lg w-[300px] p-2" value="{{ form.quantity.value|default_if_none:'' }}">
+                            </div>
+                            <div class="flex flex-col gap-1">
+                                <label for="id_image" class="font-medium">Image:</label>
+                                <input type="file" name="image" id="id_image" class="border-[2px] border-gray-600 rounded-lg w-[300px] p-2">
+                            </div>
+                            <button type="submit" class="border-[2px] bg-green-300 border-black px-3 py-1 rounded-lg mt-[20px] hover:bg-green-500">
+                                Update Product
+                            </button>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+            
+        </div>
+   </div>
+
+</body>
+</html>
