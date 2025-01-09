@@ -43,3 +43,14 @@ def update_product(request,product_id):
         else:
             form = UpdateProduct(instance=product)
         return render(request, 'admin/edit_product.html', {'form': form,'product':product})
+    
+
+@login_required
+@user_passes_test(is_admin)
+def delete_product(request, id):
+    product = get_object_or_404(Product, pk=id)
+    if request.method == 'POST':
+        product.delete()
+        return redirect('dashboard')
+    return render(request, 'admin/deleteConfirm.html', {'product': product})
+

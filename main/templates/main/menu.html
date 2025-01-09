@@ -5,9 +5,11 @@
                 <li class="mr-[10px] hover:text-white">
                     <a href=" {% url 'home' %}">Home</a>
                 </li>
+                {% if request.user.is_superuser %}
                 <li class="mr-[10px] hover:text-white">
-                    <a href="{% url 'add_product' %}">Add product</a>
+                    <a href="{% url 'dashboard' %}">Dashboard</a>
                 </li>
+                {% endif %}
                 <li class="mr-[10px] hover:text-white">
                     <a href="{% url 'view_cart' %}">Cart</a>
                 </li>
