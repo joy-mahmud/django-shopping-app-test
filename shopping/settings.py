@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'main',
     'users',
-    'admin_panel'
+    'admin_panel',
+    'payment'
 ]
 
 MIDDLEWARE = [
@@ -133,3 +134,7 @@ MEDIA_ROOT=os.path.join(BASE_DIR,'media')
 LOGIN_URL='login'
 LOGIN_REDIRECT_URL='home'
 LOGOUT_REDIRECT_URL='login'
+
+
+STRIPE_PUBLIC_KEY = 'pk_test_51OGypQAhHVSLKzJ67JidouviKl4wfAI9AfO2uOdfi9gQuZPWwCg3trhItVQRJi6DbOn1mGJ3JLqXVn0aTNvbTx2T00jcJQWlFv'
+STRIPE_SECRET_KEY = 'sk_test_51OGypQAhHVSLKzJ68RQgOgbrYtiUZkWceeNgjbs3Ht2RCFPgUHzGvrfRmoXJ1uinJwtRhUnVkP8BpUMaGil2ww6Q00nnw0hHsZ'

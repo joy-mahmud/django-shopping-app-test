@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Buy cool new product</title>
+    <script src="https://js.stripe.com/v3/"></script>
+  </head>
+  <body>
+    
+<button id="checkout-button">Checkout</button>
+
+<script>
+  const STRIPE_PUBLIC_KEY='pk_test_51OGypQAhHVSLKzJ67JidouviKl4wfAI9AfO2uOdfi9gQuZPWwCg3trhItVQRJi6DbOn1mGJ3JLqXVn0aTNvbTx2T00jcJQWlFv'
+    var stripe = Stripe(STRIPE_PUBLIC_KEY);
+
+    document.getElementById('checkout-button').addEventListener('click', function() {
+      console.log('checkout clicked')
+        fetch('http://127.0.0.1:8000/payment/checkout-session/', {
+            method: 'POST',
+        })
+        .then(response => response.json())
+        .then(session => {
+            return stripe.redirectToCheckout({ sessionId: session.id });
+        })
+        .then(result => {
+            if (result.error) {
+                alert(result.error.message);
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+    });
+</script>
+
+  </body>
+</html>
